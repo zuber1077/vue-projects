@@ -1,5 +1,5 @@
 {
-  "name": "vuejs-poster-shop",
+  "name": "vuejs-shop",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,7 @@
   "engines": {
     "node": ">=6.4"
   },
-  "homepage": "http://vuejs-poster-shop.vuejsdevelopers.com/",
   "keywords": [
-    "vue",
     "vue.js",
     "node"
   ],
