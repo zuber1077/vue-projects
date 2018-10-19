@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Cinema</title>
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> -->
+    <style>
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="project-info" class="slide slide-leave">
+        <div id="info">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <form action=""
+                method="post" novalidate="novalidate">
+                <div class="inputs">
+                    <input type="email" value="" name="EMAIL" placeholder="Email address"
+                        class="email"> 
+                    <input type="hidden" name="COURSE" value="0"> <input type="hidden" name="SOURCE"
+                        value="proj_cin"> 
+                    <input type="submit" value="Tell me more" name="subscribe" id="mc-embedded-subscribe"
+                        class="button">
+                </div>
+                <div>
+                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                        <input type="text" name="b_cd0e0c3fe7829518b809554a8_607f131620"
+                            tabindex="-1" value="">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="tab">Contact Me!
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                y="0px" width="10px" height="10px" viewBox="0 0 284.929 284.929" xml:space="preserve">
+                <g>
+                    <path d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441 L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082 c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647 c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z"></path>
+                </g>
+            </svg> 
+        </div>
+    </div>
+    <div id="title">
+        <img src="/public/logo.png">
+        <h1>Vue C</h1>
+    </div>
+    <div id="overview">
+        <div class="main">
+            <movie-list v-bind:genre="genre" v-bind:time="time"></movie-list>
+            <movie-filter v-on:check-filter="checkFilter"></movie-filter>
+        </div>
+    </div>
+</div>
+<script src="/dist/build.js"></script>
+</body>
+</html>
