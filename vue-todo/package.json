@@ -1,0 +1,26 @@
+{
+  "name": "vue-todo",
+  "version": "1.0.0",
+  "description": "todo app using vuejs, nodejs and mongodb",
+  "main": "app.js",
+  "scripts": {
+    "start": "app.js"
+  },
+  "keywords": [
+    "vue",
+    "vue.js",
+    "todo",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "zuber",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.5.2",
+    "express": "^4.16.4",
+    "method-override": "~2.1.2",
+    "mongoose": "~3.6.2",
+    "morgan": "^1.9.0"
+  }
+}
