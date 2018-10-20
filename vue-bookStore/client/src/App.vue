@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    <router-view/>
+    <page-header />
+    <main>
+      <v-container fluid fill-height>
+        <router-view/>
+      </v-container>
+    </main>
   </div>
 </template>
 
 <script>
+import PageHeader from './components/Header'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    PageHeader
+  }
 }
 </script>
 

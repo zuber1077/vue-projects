@@ -3,15 +3,13 @@
   <v-flex xs12 sm8 md4>
     <div class="white elevation-2">
       <v-toolbar flat dense color="blue-grey" dark>
-        <v-toolbar-title>Register</v-toolbar-title>
+        <v-toolbar-title>Login</v-toolbar-title>
       </v-toolbar>
       <div class="pl-4 pr-4 pt-2 pb-2">
-        <form name="tab-tracker-form" autocomplete="off">
-          <v-text-field type="email" prepend-icon="person" v-model="email" label="Email"></v-text-field> <br>
-          <v-text-field type="password" autocomplete="new-password" prepend-icon="lock" v-model="password" label="Password"></v-text-field>
-          <div class="error" v-html="error" />
-        </form>
-          <v-btn dark class="blue-grey" @click="register">Register</v-btn>
+        <v-text-field type="email" prepend-icon="person" v-model="email" label="Email"></v-text-field> <br>
+        <v-text-field type="password" prepend-icon="lock" v-model="password" label="Password"></v-text-field>
+        <div class="error" v-html="error" />
+        <v-btn dark class="blue-grey" @click="login">Login</v-btn>
       </div>
     </div>
   </v-flex>
@@ -30,9 +28,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
