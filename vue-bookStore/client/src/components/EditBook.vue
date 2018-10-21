@@ -21,12 +21,8 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import BooksService from '@/services/BooksService'
 export default {
-  components: {
-    Panel
-  },
   data() {
     return {
       book: {

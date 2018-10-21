@@ -4,7 +4,8 @@
   "description": "bookstore using vue.js and express",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon src/app.js"
+    "start": "nodemon src/app.js",
+    "seed": "node ./seed"
   },
   "author": "zuber",
   "license": "MIT",

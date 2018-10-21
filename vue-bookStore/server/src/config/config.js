@@ -1,3 +1,5 @@
+const path = require('path')
+
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 module.exports = {
@@ -9,7 +11,7 @@ module.exports = {
     options: {
       dialect: process.env.DIALECT || "sqlite",
       host: process.env.HOST || "localhost",
-      storage: "./vuebookstore.sqlite",
+      storage: path.resolve(__dirname, "../../vuebookstore.sqlite"),
       operatorsAliases: false
     }
   },
