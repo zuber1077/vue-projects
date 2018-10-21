@@ -2,20 +2,15 @@
 <v-layout column container>
   <v-flex xs6>
     <panel title="Books">
-      <v-btn slot="action" class="blue-grey lighten-1" router dark medium absolute right middle fab to="books/create"><v-icon>add</v-icon></v-btn>
+      <v-btn slot="action" class="blue-grey lighten-1" dark medium absolute right middle fab
+       :to="{name: 'book-create'}"><v-icon>add</v-icon></v-btn>
       <div class="book" v-for="book in books" :key="book.id">
         <v-layout>
           <v-flex xs6>
-            <div class="book-title">
-              {{book.title}}
-            </div>
-            <div class="book-author">
-              {{book.author}}
-            </div>
-            <div class="book-genres">
-              {{book.genres}}
-            </div>
-            <v-btn router :to="{name: 'book', params: {bookId: book.id}}" dark class="blue-grey" @click="create">View</v-btn>
+            <div class="book-title"> {{book.title}} </div>
+            <div class="book-author"> {{book.author}}</div>
+            <div class="book-genres"> {{book.genres}}</div>
+            <v-btn router :to="{name: 'book', params: {bookId: book.id}}" dark class="blue-grey" >View</v-btn>
           </v-flex>
           <v-flex xs6>
             <img class="book-coverImage" :src="book.coverImage" />

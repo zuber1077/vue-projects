@@ -5,7 +5,7 @@ import Register from "@/components/Register";
 import Login from "@/components/Login";
 import Books from "@/components/Books";
 import CreateBook from "@/components/CreateBook";
-import ViewBook from "@/components/ViewBook";
+import ViewBook from "@/components/ViewBook/Index";
 
 Vue.use(Router)
 

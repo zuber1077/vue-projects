@@ -11,6 +11,14 @@ module.exports = {
       res.status(500).send({ error: "an error has occurred trying to fetch the books" });
     }
   },
+  async show (req, res) {
+    try {
+      const book = await Book.findById(req.params.bookId)
+      res.send(book)
+    } catch (error) {
+      res.status(500).send({ error: "an error has occurred trying to fetch the books" });
+    }
+  },
   async post (req, res) {
     try {
       const book = await Book.create(req.body)

@@ -1,13 +1,14 @@
 <template>
   <v-toolbar fixed dark class="blue-grey">
-    <v-toolbar-title class="mr-4">VueBookStore</v-toolbar-title>
+    <v-toolbar-title :to="{name: 'home'}" class="mr-4">VueBookStore</v-toolbar-title>
     <v-toolbar-items>
-      <v-btn router flat dark to="books">Browse</v-btn>
+      <!-- <v-btn router flat dark to="books">Browse</v-btn> -->
+      <v-btn flat dark :to="{name: 'books'}">Browse</v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items>
-      <v-btn v-if="!$store.state.isUserLoggedIn" router flat dark  to="register">Sign Up</v-btn>
-      <v-btn v-if="!$store.state.isUserLoggedIn" router flat dark  to="login">Login</v-btn>
+      <v-btn v-if="!$store.state.isUserLoggedIn" flat dark :to="{name: 'register'}">Sign Up</v-btn>
+      <v-btn v-if="!$store.state.isUserLoggedIn" router flat dark  :to="{name: 'login'}">Login</v-btn>
       <v-btn v-if="$store.state.isUserLoggedIn" router flat dark  @click="logout">Log Out</v-btn>
     </v-toolbar-items>
   </v-toolbar>
