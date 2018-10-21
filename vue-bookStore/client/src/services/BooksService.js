@@ -9,5 +9,8 @@ export default {
   },
   post (book) {
     return Api().post('books', book)
+  },
+  put (book) {
+    return Api().put(`books/${book.id}`, book)
   }
 }
