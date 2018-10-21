@@ -8,7 +8,7 @@
       <div class="pl-4 pr-4 pt-2 pb-2">
         <v-text-field type="email" prepend-icon="person" v-model="email" label="Email"></v-text-field> <br>
         <v-text-field type="password" prepend-icon="lock" v-model="password" label="Password"></v-text-field>
-        <div class="error" v-html="error" />
+        <div class="red--text" v-html="error" />
         <v-btn dark class="blue-grey" @click="login">Login</v-btn>
       </div>
     </div>
@@ -36,6 +36,7 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({ name: 'books' })
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -46,7 +47,4 @@ export default {
 
 
 <style scoped>
-  .error{ 
-    color: red;
-  }
 </style>

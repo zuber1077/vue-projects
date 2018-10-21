@@ -6,7 +6,7 @@
         <div class="book-title"> {{book.title}} </div>
         <div class="book-author"> {{book.author}}</div>
         <div class="book-genres"> {{book.genres}}</div>
-         <v-btn router :to="{name: 'book-edit', params: {bookId: book.id}}"  class="yellow" >Edit</v-btn>
+         <v-btn router :to="{name: 'book-edit', params() { return{ bookId: book.id }}}"  class="yellow" >Edit</v-btn>
       </v-flex>
       <v-flex xs6>
         <img class="book-coverImage" :src="book.coverImage" />
