@@ -1,11 +1,26 @@
 const {Book} = require('../models')
+const Sequelize = require('sequelize');
 
 module.exports = {
   async index (req, res) {
     try {
-      const books = await Book.findAll({
-        limit: 10 
-      })
+      let books = null
+      const search = req.query.search
+      if (search) {
+        books = await Book.findAll({
+          where: {
+            [Sequelize.Op.or]: [
+              {title: {[Sequelize.Op.like]: '%' + search + '%'}},
+              {author: {[Sequelize.Op.like]: '%' + search + '%'}},
+              {genres: {[Sequelize.Op.like]: '%' + search + '%'}},
+            ]
+          }
+        })
+      } else {
+        books = await Book.findAll({
+          limit: 10 
+        })
+      }
       res.send(books)
     } catch (error) {
       res.status(500).send({ error: "an error has occurred trying to fetch the books" });

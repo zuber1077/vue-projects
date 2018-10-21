@@ -19,14 +19,10 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 export default {
   props: [
     'book'
-  ],
-  components: {
-    Panel
-  }
+  ]
 }
 </script>
 

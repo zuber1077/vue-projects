@@ -1,6 +1,8 @@
 <template>
   <v-toolbar fixed dark class="blue-grey">
-    <v-toolbar-title :to="{name: 'home'}" class="mr-4">VueBookStore</v-toolbar-title>
+    <v-toolbar-title class="mr-4 logo">
+      <router-link tag="span" :to="{name: 'home'}">VueBookStore</router-link>
+     </v-toolbar-title>
     <v-toolbar-items>
       <!-- <v-btn router flat dark to="books">Browse</v-btn> -->
       <v-btn flat dark :to="{name: 'books'}">Browse</v-btn>
@@ -30,5 +32,7 @@ export default {
 
 
 <style scoped>
-
+.logo {
+  cursor: pointer;
+}
 </style>

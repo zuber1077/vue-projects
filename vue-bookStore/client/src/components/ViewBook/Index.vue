@@ -23,12 +23,10 @@
 import SampleBook from './SampleBook'
 import BookMetadata from './BookMetadata'
 import YoutubeView from './YoutubeView'
-import Panel from '@/components/Panel'
 import BooksService from '@/services/BooksService'
 import AllBookPage from './AllBookPage'
 export default {
   components: {
-    Panel,
     BookMetadata,
     YoutubeView,
     SampleBook,

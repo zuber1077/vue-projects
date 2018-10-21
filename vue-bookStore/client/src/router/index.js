@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from "@/components/Home";
 import Register from "@/components/Register";
 import Login from "@/components/Login";
-import Books from "@/components/Books";
+import Books from "@/components/Books/Index";
 import CreateBook from "@/components/CreateBook";
 import ViewBook from "@/components/ViewBook/Index";
 import EditBook from "@/components/EditBook";
