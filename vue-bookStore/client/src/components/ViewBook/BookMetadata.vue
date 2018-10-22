@@ -7,8 +7,8 @@
         <div class="book-author"> {{book.author}}</div>
         <div class="book-genres"> {{book.genres}}</div>
          <v-btn router :to="{name: 'book-edit', params() { return{ bookId: book.id }}}"  class="yellow" >Edit</v-btn>
-         <v-btn v-if="isUserLoggedIn && !isBookmarked" router dark class="black" @click="unbookmark">Bookmark</v-btn>
-         <v-btn v-if="isUserLoggedIn && isBookmarked" router class="white" @click="bookmark">UnBookmark</v-btn>
+         <v-btn v-if="isUserLoggedIn && !bookmark" router dark class="black" @click="setAsbookmark">Set As Bookmark</v-btn>
+         <v-btn v-if="isUserLoggedIn && bookmark" router class="white" @click="unsetAsbookmark">Unset As Bookmark</v-btn>
       </v-flex>
       <v-flex xs6>
         <img class="book-coverImage" :src="book.coverImage" />
@@ -30,7 +30,7 @@ export default {
   ],
   data() {
     return {
-      isBookmarked: false
+      bookmark: null
     }
   },
   computed: {
@@ -38,34 +38,39 @@ export default {
       'isUserLoggedIn'
     ])
   },
-  async mounted() {
-    try {
-      const bookmark = (await BookmarksService.index({
-        bookId: this.$store.state.route.params.bookId,
-        userId: this.$store.state.user.id
-      })).data    
-      this.isBookmarked = !!bookmark
-    } catch (error) {
-      console.log(error);
+  watch: {
+    async book () {
+      if (!this.isUserLoggedIn) {
+        return
+      }
+
+      try {
+        this.bookmark = (await BookmarksService.index({
+          bookId: this.$store.state.route.params.bookId,
+          // bookId: this.book.id,
+          userId: this.$store.state.user.id
+        })).data    
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   methods: {
-    async bookmark () {
+    async setAsbookmark () {
       try {
-        await BookmarksService.post({
+        this.bookmark = (await BookmarksService.post({
+          // bookId: this.book.id,
           bookId: this.$store.state.route.params.bookId,
           userId: this.$store.state.user.id
-        })
+        })).data
       } catch (error) {
         console.log(error);
       }
     },
-    async unbookmark () {
+    async unsetAsbookmark () {
       try {
-        await BookmarksService.delete({
-          bookId: this.$store.state.route.params.bookId,
-          userId: this.$store.state.user.id
-        })
+        await BookmarksService.delete(this.bookmark.id)
+        this.bookmark = null
       } catch (error) {
         console.log(error);
       }
