@@ -1,6 +1,9 @@
 <template>
-<v-layout column container>
+<v-layout >
   <v-flex xs6>
+    <books-bookmark />
+  </v-flex>
+  <v-flex xs6 class="ml-2">
     <books-search-panel />
     <books-panel class="mt-2" />
   </v-flex>
@@ -8,18 +11,26 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import BooksPanel from './BooksPanel'
 import BooksSearchPanel from './BooksSearchPanel'
+import BooksBookmark from './BooksBookmark'
 import BooksService from '@/services/BooksService'
 export default {
   components: {
     BooksPanel,
-    BooksSearchPanel
+    BooksSearchPanel,
+    BooksBookmark
   },
   data() {
     return {
       books: null
     }
+  },
+   computed: {
+    ...mapState([
+      'isUserLoggedIn'
+    ])
   },
   async mounted() {
     // do a request to the backend for all the books

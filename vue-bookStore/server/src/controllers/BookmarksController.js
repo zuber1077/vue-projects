@@ -1,17 +1,28 @@
-const {Bookmark} = require('../models')
+const {Bookmark, Book} = require('../models')
 const Sequelize = require('sequelize');
-
 module.exports = {
   async index (req, res) {
     try {
       const {bookId, userId} = req.query
-      const bookmark = await Bookmark.findOne({
-        where: {
-          BookId: bookId,
-          UserId: userId
-        }
-      })
-      res.send(bookmark)
+      const where = {
+        UserId: userId
+      }
+      if (bookId) {
+        where.BookId = bookId
+      }
+      const bookmarks = await Bookmark.findAll({
+        where: where,
+        include: [
+          {
+            model: Book
+          }
+        ] 
+      }).map(bookmark => bookmark.toJSON())
+        .map(bookmark => Object.assign({}, 
+          bookmark.Book, 
+          bookmark
+        ))
+      res.send(bookmarks)
     } catch (error) {
       res.status(500).send({ error: "an error has occurred trying to fetch the bookmark" });
     }
