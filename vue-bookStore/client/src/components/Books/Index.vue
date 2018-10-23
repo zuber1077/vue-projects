@@ -2,6 +2,7 @@
 <v-layout >
   <v-flex xs6>
     <books-bookmark />
+    <recently-viewed-books class="mt-2" />
   </v-flex>
   <v-flex xs6 class="ml-2">
     <books-search-panel />
@@ -15,12 +16,14 @@ import {mapState} from 'vuex'
 import BooksPanel from './BooksPanel'
 import BooksSearchPanel from './BooksSearchPanel'
 import BooksBookmark from './BooksBookmark'
+import RecentlyViewedBooks from './RecentlyViewedBooks'
 import BooksService from '@/services/BooksService'
 export default {
   components: {
     BooksPanel,
     BooksSearchPanel,
-    BooksBookmark
+    BooksBookmark,
+    RecentlyViewedBooks
   },
   data() {
     return {
