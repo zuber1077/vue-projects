@@ -16,6 +16,6 @@ module.exports = {
     }
   },
   authentication: {
-    jwtSecret: process.env.JWR_SECRET || 'mysecret!'
+    jwtSecret: process.env.JWR_SECRET || 'yesmysecret!'
   }
 };

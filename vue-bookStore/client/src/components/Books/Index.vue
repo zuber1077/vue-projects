@@ -1,10 +1,10 @@
 <template>
 <v-layout >
-  <v-flex xs6>
+  <v-flex xs6 v-if="isUserLoggedIn">
     <books-bookmark />
     <recently-viewed-books class="mt-2" />
   </v-flex>
-  <v-flex xs6 class="ml-2">
+  <v-flex :class="{ xs12: !isUserLoggedIn, xs6: isUserLoggedIn }" class="ml-2">
     <books-search-panel />
     <books-panel class="mt-2" />
   </v-flex>

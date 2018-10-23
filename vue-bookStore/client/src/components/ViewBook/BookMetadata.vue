@@ -48,8 +48,8 @@ export default {
       try {
         const bookmarks = (await BookmarksService.index({
           bookId: this.$store.state.route.params.bookId,
-          // bookId: this.book.id,
-          userId: this.user.id
+          // bookId: this.book.id
+          // userId: this.user.id
         })).data
         if (bookmarks.length) {
           this.bookmark = bookmarks[0]
@@ -65,7 +65,7 @@ export default {
         this.bookmark = (await BookmarksService.post({
           // bookId: this.book.id,
           bookId: this.$store.state.route.params.bookId,
-          userId: this.user.id
+          // userId: this.user.id
         })).data
       } catch (error) {
         console.log(error);

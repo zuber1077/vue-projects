@@ -52,8 +52,7 @@ export default {
 
   if (this.isUserLoggedIn) {
     BookHistoryService.post({
-      bookId: bookId,
-      userId: this.user.id 
+      bookId: bookId
     })    
   }
   },

@@ -4,7 +4,7 @@ const _ = require('lodash');
 module.exports = {
   async index (req, res) {
     try {
-      const {userId} = req.query
+      const userId = req.user.id
       const histories = await History.findAll({
         where: {
           UserId: userId
@@ -19,14 +19,15 @@ module.exports = {
           history.Book, 
           history
         ))
-      res.send(_.uniq(histories))
+      res.send(_.uniqBy(histories, history => history.BookId))
     } catch (error) {
       res.status(500).send({ error: "an error has occurred trying to fetch the history" });
     }
   },
   async post (req, res) {
     try {
-      const {bookId, userId} = req.body
+      const userId = req.user.id
+      const {bookId} = req.body
       const history = await History.create({
         BookId: bookId,
         UserId: userId

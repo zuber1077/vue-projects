@@ -45,9 +45,7 @@ export default {
   },
   async mounted() {
     if (this.isUserLoggedIn) {
-      this.histories = (await BookHistoryService.index({
-        userId: this.user.id
-      })).data
+      this.histories = (await BookHistoryService.index()).data
     }
   },
 }
