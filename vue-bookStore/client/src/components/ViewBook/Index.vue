@@ -20,10 +20,12 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import SampleBook from './SampleBook'
 import BookMetadata from './BookMetadata'
 import YoutubeView from './YoutubeView'
 import BooksService from '@/services/BooksService'
+import BookHistoryService from '@/services/BookHistoryService'
 import AllBookPage from './AllBookPage'
 export default {
   components: {
@@ -37,9 +39,22 @@ export default {
       book: {}
     }
   },
+   computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user',
+      'route'
+    ])
+  },
   async mounted() {
-    const bookId = this.$store.state.route.params.bookId
+    const bookId = this.route.params.bookId
     this.book = (await BooksService.show(bookId)).data
+
+  if (this.isUserLoggedIn) {
+    BookHistoryService.post({
+      bookId: bookId
+    })    
+  }
   },
 }
 </script>
