@@ -29,6 +29,11 @@ app.post('/upload', upload.single('file'), (req, res) => {
     file: req.file
   })
 })
+app.post('/multiple', upload.array('files'), (req, res) => {
+  res.json({
+    files: req.files
+  })
+})
 
 app.use(function(error, req, res, next) {
   if (error.code === "LIMIT_FILE_TYPES") {
