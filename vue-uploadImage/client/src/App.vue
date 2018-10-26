@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <div class="container">
-      <upload />  
+      <upload />
     </div>
   </div>
 </template>
@@ -16,5 +16,4 @@ export default {
 </script>
 
 <style>
-
 </style>
