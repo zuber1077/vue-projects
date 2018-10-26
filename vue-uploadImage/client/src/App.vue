@@ -1,24 +1,19 @@
 <template>
-  <div id="app">
+  <div class="section">
     <div class="container">
-      <router-view/>
+      <upload />
     </div>
   </div>
 </template>
 
 <script>
+import upload from './upload.vue';
+
 export default {
   name: 'App',
-  components: {}
+  components: {upload}
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
-}
 </style>

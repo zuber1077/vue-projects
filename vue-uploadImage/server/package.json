@@ -1,26 +1,23 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "upload image using nodejs and vuejs in client",
+  "description": "upload server api",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node app.js"
   },
   "keywords": [
-    "vue",
-    "nodejs",
-    "uploadimage",
-    "cloudinery"
+    "vuejs",
+    "upload",
+    "image",
+    "server",
+    "side",
+    "express"
   ],
   "author": "zuber",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "cloudinary": "^1.11.0",
-    "cors": "^2.8.4",
-    "dotenv": "^6.1.0",
     "express": "^4.16.4",
-    "mongoose": "^5.3.6",
     "multer": "^1.4.1"
   }
 }
