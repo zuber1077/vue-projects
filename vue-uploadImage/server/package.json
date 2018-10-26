@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "upload server api",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "vuejs",
+    "upload",
+    "image",
+    "server",
+    "side",
+    "express"
+  ],
+  "author": "zuber",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "multer": "^1.4.1"
+  }
+}
