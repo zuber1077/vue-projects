@@ -24,6 +24,10 @@ const upload = multer({
   }
 })
 
+const pureUpload = multer({
+  dest: "./uploads/"
+})
+
 app.post('/upload', upload.single('file'), (req, res) => {
   res.json({
     file: req.file
@@ -32,6 +36,11 @@ app.post('/upload', upload.single('file'), (req, res) => {
 app.post('/multiple', upload.array('files'), (req, res) => {
   res.json({
     files: req.files
+  })
+})
+app.post('/dropzone', pureUpload.single('file'), (req, res) => {
+  res.json({
+    file: req.file
   })
 })
 
@@ -46,4 +55,4 @@ app.use(function(error, req, res, next) {
   }
 })
 
-app.listen(8081, () => console.log('Running on localhost:8081'));
+app.listen(8082, () => console.log('Running on localhost:8082'));
